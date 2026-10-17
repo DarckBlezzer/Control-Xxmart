@@ -116,9 +116,8 @@ Control-Xxmart/
 │       ├── mideaProtocol.js         # Constructor y decodificador de tramas 0xAC
 │       └── sessionManager.js        # Gestor de sesión persistente y auto-relogin
 ├── capacitor.config.json            # Configuración nativa con CapacitorHttp activado
-├── index.html                       # Entrada HTML de la SPA
+├── index.html                       # Entrada HTML de la SPA (requerido por Vite y Capacitor)
 ├── package.json                     # Dependencias (Vue 3, Vite, Capacitor 8, Lucide)
-├── test_midea_crypto.js             # Pruebas unitarias de cifrado y tramas
 └── vite.config.js                   # Configuración del bundler Vite con proxy de desarrollo
 ```
 
