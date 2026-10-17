@@ -57,3 +57,16 @@ try {
 } catch(Exception e) {
     logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
 }
+
+tasks.register('copyReleaseApk', Copy) {
+    from layout.buildDirectory.dir("outputs/apk/release")
+    include "app-release.apk"
+    into file("${rootDir}/../release")
+}
+
+afterEvaluate {
+    tasks.named('assembleRelease').configure {
+        finalizedBy 'copyReleaseApk'
+    }
+}
+

@@ -101,6 +101,8 @@ Control-Xxmart/
 │   ├── gradle.properties            # Propiedades de JVM y AndroidX
 │   └── gradlew.bat                  # Wrapper portable de Gradle
 ├── public/                          # Iconos y recursos estáticos
+├── release/                         # Directorio de salida único de producción
+│   └── app-release.apk              # APK optimizada y firmada lista para instalar (~3.1 MB)
 ├── src/                             # Código fuente de la aplicación Vue 3
 │   ├── App.vue                      # Componente principal con ciclo de vida y sincronización
 │   ├── style.css                    # Estilos modernos dark-mode y feedback táctil
@@ -125,7 +127,7 @@ Control-Xxmart/
 ## 📱 Instalación del APK
 
 ### Opción A: Descarga directa (Recomendada)
-1. Descarga el archivo `.apk` más reciente desde la sección de [Releases](https://github.com/DarckBlezzer/Control-Xxmart/releases).
+1. Descarga el archivo `app-release.apk` desde la sección de [Releases](https://github.com/DarckBlezzer/Control-Xxmart/releases).
 2. Pásalo a tu celular (o descárgalo directamente desde el navegador de tu teléfono).
 3. Pulsa sobre el archivo `.apk` e instálalo (permite "Instalar aplicaciones de fuentes desconocidas" si Android lo solicita).
 4. Inicia sesión con tu cuenta habitual de Mirage / Midea.
@@ -134,7 +136,7 @@ Control-Xxmart/
 ### Opción B: Instalación por USB (ADB)
 Si tienes depuración USB activada en tu celular:
 ```cmd
-adb install -r app-debug.apk
+adb install -r release\app-release.apk
 adb shell am start -n com.mirage.smartac/.MainActivity
 ```
 
@@ -160,7 +162,14 @@ npm run dev
 ```
 Abre en tu navegador `http://localhost:5173`. Las llamadas a `/v1` son redirigidas por el proxy de Vite directamente al servidor de Mirage sin restricciones de CORS.
 
-### 3. Compilar APK para Android
+### 3. Compilar APK de Producción (`app-release.apk`)
+
+#### Opción rápida (un solo comando con npm):
+```powershell
+npm run build:apk
+```
+
+#### Opción manual paso a paso:
 ```powershell
 # 1. Compilar aplicación web
 npm run build
@@ -170,10 +179,10 @@ npx cap sync
 
 # 3. Compilar APK con Gradle
 cd android
-.\gradlew.bat assembleDebug
+.\gradlew.bat assembleRelease
 ```
-El archivo APK generado se ubicará en:  
-`android/app/build/outputs/apk/debug/app-debug.apk`
+El instalador final generado y firmado se copiará automáticamente a:  
+📁 `release/app-release.apk` (Tamaño optimizado: ~3.1 MB)
 
 ---
 

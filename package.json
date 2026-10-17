@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:apk": "vite build && npx cap sync && cd android && gradlew assembleRelease"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.2",
