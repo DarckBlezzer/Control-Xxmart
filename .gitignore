@@ -1,0 +1,58 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+
+# Environment and sensitive files
+.env
+.env.*
+*.local
+local.properties
+android/local.properties
+
+# Android and Build outputs
+*.apk
+*.aab
+*.aar
+*.dex
+.gradle/
+android/.gradle/
+android/app/build/
+android/build/
+build/
+bin/
+gen/
+out/
+
+# Keystores and Certificates
+*.keystore
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Reverse engineering and analysis dumps
+apk_original/
+*.dump.txt
