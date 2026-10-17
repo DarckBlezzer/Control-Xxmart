@@ -32,6 +32,7 @@ local.properties
 android/local.properties
 
 # Android and Build outputs
+release/
 *.apk
 *.aab
 *.aar
